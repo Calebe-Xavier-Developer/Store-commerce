@@ -1,16 +1,120 @@
-<mat-sidenav-container class="example-container" autosize>
-  <mat-sidenav #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
-  </mat-sidenav>
+<div>
+  <mat-card class="bar">
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  </mat-card>
+<!--------------------------------------------------------------------------------------->
+<mat-card class="background">
+<mat-card class="mid1">
+  <div class="margin-left">
 
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
+  <mat-card-title>Cadastrar Usuários</mat-card-title>
+  <mat-divider></mat-divider>
+  </div>
+  <br>
+
+
+  <mat-card class="mid">
+      <div class="row">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-icon matSuffix>event_seat</mat-icon>
+          <mat-label>Tipo de Usuário</mat-label>
+          <input matInput placeholder="Ex. Executivo" >
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+        <mat-icon matSuffix>face</mat-icon>
+        <mat-label> Nome</mat-label>
+        <input matInput placeholder="Ex. Ana Maria Braga" >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-icon matSuffix>alternate_email</mat-icon>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Ex. pat@example.com">
+      </mat-form-field>
+
+      <div class="ml">
+      <mat-form-field appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div>
+      <mat-form-field appearance="fill" >
+        <mat-label>Repetir Senha</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
   </div>
 
-</mat-sidenav-container>
+
+    <div class="left">
+    <button mat-flat-button color="primary">Cadastrar</button>
+    </div>
+    </form>
+  </div>
+</mat-card>
+</mat-card>
+<br>
+<mat-card>
+<div class="margin-left">
+
+  <mat-card-title>Lista de Usuários</mat-card-title>
+  <mat-divider></mat-divider>
+  </div>
+  <br>
+  <mat-card class="mid">
+    <div class="row">
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+        <!-- Ação -->
+        <ng-container matColumnDef="acao">
+          <mat-header-cell *matHeaderCellDef> Ação </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.acao}} </mat-cell>
+        </ng-container>
+
+        <!-- Nome -->
+        <ng-container matColumnDef="nome">
+          <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+        </ng-container>
+
+        <!-- Email -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <!-- Cargo -->
+        <ng-container matColumnDef="cargo">
+          <mat-header-cell *matHeaderCellDef> Cargo </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.cargo}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+      </mat-card>
+
+    </mat-card>
+</mat-card>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Cadastrar usuários</button>
+  <button mat-menu-item>Lista de usuários</button>
+</mat-menu>
+</div>
+

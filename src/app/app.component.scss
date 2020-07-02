@@ -1,16 +1,91 @@
-.example-container {
-  width: 500px;
-  height: 300px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+.bar {
+  width: 100%;
+  color:white;
+  background-color: rgb(100, 15, 197);
+  align-items: center !important ;
 }
 
-.example-sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
+.menu{
+  margin-top: 10px !important;
+  height: 50px !important;
+  width: 50px !important;
 }
 
-.example-sidenav {
-  padding: 20px;
+.div-bar{
+  height: 50px !important;
+  width: 50px !important;
+ margin-left: 80%;
+ margin-top: 50px !important;
+}
+
+.background{
+  background-color: rgb(54, 188, 206);
+}
+
+.margin-left{
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.ml{
+  margin-left: 130px;
+}
+
+.left{
+  margin-left: 200px;
+}
+
+.row{
+  flex-direction: row !important;
+  justify-content: center !important;
+}
+
+.collumn{
+  flex-direction: column !important;
+}
+
+.mid{
+  max-width: 1000px;
+  max-height: 600px;
+  margin-left: 15% !important;
+  margin-right: 15% !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.mid1{
+  justify-content: center !important;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 25%;
+
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+table {
+  width: 100%;
 }
